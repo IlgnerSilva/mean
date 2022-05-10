@@ -1,12 +1,7 @@
-var express = require('express')
-    ,app = express()
-    ,bodyParser = require('body-parser')
-    ,routes = require('../app/routes');
+const express = require('express');
+const app = express();
 
-app.use(express.static('./public'));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-routes(app);
+app.use(express.static(('./public')));
+require('../app/routes/index')(app);
 
 module.exports = app;
